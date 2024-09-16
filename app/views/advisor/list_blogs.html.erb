@@ -1,0 +1,62 @@
+<section class="bg-gray-900 mt-20">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+    <div class="bg-gray-800 border border-gray-700 rounded-lg p-8 md:p-12 mb-8">
+      <div class="flex flex-wrap justify-evenly items-center w-full mt-4">
+        <% @blogs.each do |blog| %>
+          <div class="w-64 border rounded-lg shadow bg-gray-800 border-gray-700 m-4">
+            <%= link_to advisor_edit_blog_path(blog) do %>
+              <% if blog.cover_image.present? %>
+                <%= image_tag blog.cover_image, class: "rounded-t-lg object-cover w-64 h-32", alt: "cover image for the article" %>
+              <% end %>
+            <% end %>
+            <div class="p-5">
+              <span class="text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md bg-gray-700 mb-2">
+                <% if blog.status == "Draft" %>
+                  <svg class="w-6 h-6 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
+                  </svg>
+                  <div class="text-yellow-300 pl-1"><%= blog.status %></div>
+                <% elsif blog.status == "Scheduled" %>
+                  <svg class="w-6 h-6 text-indigo-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z"/>
+                  </svg>
+                  <div class="text-indigo-400 pl-1"><%= blog.status %></div>
+                <% else blog.status == "Published" %>
+                  <svg class="w-6 h-6 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
+                    <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                  </svg>
+                  <div class="text-green-400 pl-1"><%= blog.status %></div>
+                <% end %>
+              </span>
+              <%= link_to advisor_edit_blog_path(blog) do %>
+                <h5 class="mb-2 font-bold tracking-tight text-white"><%= blog.title %></h5>
+              <% end %>
+              <p class="mb-3 font-sm text-gray-400"><%= blog.content.to_plain_text.truncate_words(10) %></p>
+              <div class="flex justify-evenly">
+                <!--Edit blog-->
+                <%= link_to advisor_edit_blog_path(blog), class: "inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" do %>
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.779 17.779 4.36 19.918 6.5 13.5m4.279 4.279 8.364-8.643a3.027 3.027 0 0 0-2.14-5.165 3.03 3.03 0 0 0-2.14.886L6.5 13.5m4.279 4.279L6.499 13.5m2.14 2.14 6.213-6.504M12.75 7.04 17 11.28"/>
+                  </svg>
+                <% end %>
+                <!--Delete blog-->
+                <%= button_to advisor_destroy_blog_path(blog), class: "inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800", method: :delete, data: { turbo_confirm: "Are you sure?" } do %>
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
+                  </svg>
+                <% end %>
+                <!--Dashboard-->
+                <%= link_to advisor_path, class: "inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" do %>
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m4 12 8-8 8 8M6 10.5V19a1 1 0 0 0 1 1h3v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h3a1 1 0 0 0 1-1v-8.5"/>
+                  </svg>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
