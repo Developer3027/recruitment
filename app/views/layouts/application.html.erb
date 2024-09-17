@@ -2,9 +2,9 @@
 <html>
   <head>
     <title>Truckerjobs4u02</title>
+    <%= display_meta_tags site: "" %>
+    <%= favicon_link_tag "favicon.png", rel: "icon"%>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
@@ -14,13 +14,10 @@
       <%= render "layouts/navbar" %>
     </header>
     <main>
-      <% if notice.present? %>
-        <p class="py-2 px-3 bg-black mb-5 text-teal-400 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-      <% end %>
-      <% if alert.present? %>
-        <p class="py-2 px-3 bg-black mb-5 text-rose-400 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
-      <% end %>
       <%= yield %>
     </main>
+    <footer>
+      <%= render "layouts/footer" %>
+    </footer>
   </body>
 </html>

@@ -22,3 +22,20 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+
+<video controls width="250" class="rounded-lg">
+  <source src="<%= asset_path("Download.mp4") %>" type="video/mp4">
+</video>
+
+meta tags:
+
+  * site
+
+  * title
+  * description
+  * image
+  
+  * keywords
+  * author

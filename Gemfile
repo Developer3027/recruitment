@@ -55,6 +55,8 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  # Use letter_opener to open emails in the browser
+  gem "letter_opener", "~> 1.10"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -71,4 +73,11 @@ group :test do
   gem "selenium-webdriver"
 end
 
+# Devise for authentication
 gem "devise", "~> 4.9"
+
+# Meta tags for SEO
+gem "meta-tags", "~> 2.22"
+
+# AWS SDK for S3
+gem "aws-sdk-s3", "~> 1.162"
