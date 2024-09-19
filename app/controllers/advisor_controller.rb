@@ -17,7 +17,7 @@ class AdvisorController < ApplicationController
   end
 
   def edit_blog
-    @blog = Blog.find(params[:id])
+    @blog = Blog.friendly.find(params[:id])
   end
 
   def create_blog
@@ -31,7 +31,7 @@ class AdvisorController < ApplicationController
   end
 
   def update_blog
-    @blog = Blog.find(params[:id])
+    @blog = Blog.friendly.find(params[:id])
     if @blog.update(blog_params)
       redirect_to advisor_list_blogs_path
     else
@@ -40,7 +40,7 @@ class AdvisorController < ApplicationController
   end
 
   def destroy_blog
-    @blog = Blog.find(params[:id])
+    @blog = Blog.friendly.find(params[:id])
     @blog.destroy
     redirect_to advisor_list_blogs_path
   end
