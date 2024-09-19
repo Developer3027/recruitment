@@ -1,4 +1,6 @@
+# Contorller for sending emails to admin
 class LeadMailer < ApplicationMailer
+  # send email to all the admins whenever a new lead is generated
   def new_lead_email(lead)
     @lead = lead
     admins = Admin.where(role: 0)
