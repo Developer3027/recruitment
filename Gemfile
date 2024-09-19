@@ -85,3 +85,7 @@ gem "aws-sdk-s3", "~> 1.162"
 gem "rack-brotli", "~> 2.0"
 
 gem "friendly_id", "~> 5.5"
+
+gem "ransack", "~> 4.2"
+
+gem "pagy", "~> 9.0"

@@ -1,0 +1,151 @@
+<section class="bg-gray-900 mt-20 min-h-[calc(100vh-88px)]">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-black mb-5 text-teal-400 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+    <% if alert.present? %>
+      <p class="py-2 px-3 bg-black mb-5 text-rose-400 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
+    <% end %>
+    <div class="bg-gray-800 border border-gray-700 rounded-lg p-8 md:p-12 mb-8">
+      <h1 class="text-white text-3xl md:text-5xl font-extrabold mb-2">Welcome <%= current_admin.first_name %> <span class="hidden md:inline">to the Dashboard</span></h1>
+      <p class="text-lg font-normal text-gray-400 mb-6">This dashboard is for manageing generated leads for the TruckerJobs4u site. View the list of newsletter emails and the list of leads that have contacted the site. Update a lead note from this dashboard, or delete leads.</p>
+    </div>
+    <div class="bg-gray-800 border border-gray-700 rounded-lg p-8 md:p-12 mb-8">
+      <div class="flex">
+        <span class="text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md bg-gray-700 text-green-300 mb-2">
+          <svg class="w-3 h-3 me-1.5"" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M6 2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 1 0 0-2h-2v-2h2a1 1 0 0 0 1-1V4a2 2 0 0 0-2-2h-8v16h5v2H7a1 1 0 1 1 0-2h1V2H6Z" clip-rule="evenodd"/>
+          </svg>
+          Leads
+        </span>
+        <%= button_to destroy_admin_session_path, class: "text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md bg-gray-700 text-yellow-400 mb-2 ms-8", method: :delete do %>
+          <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+          </svg>&nbsp;
+          LOG OUT
+        <% end %>
+      </div>
+      <div class="bg-gray-500 p-4 rounded-lg">
+        <h2 class="font-semibold text-xl text-white">Leads Request</h2>
+        <p>
+          People who have visited the landing page and filled out the <em>"Contact Us"</em> form are listed here. Upon submitting the form:
+          <ul>
+            <li>A email with this information was mailed to you.</li>
+            <li>A thank you email was sent to the trucker.</li>
+          </ul>
+        </p>
+        <%= search_form_for @q, url: admin_path do |f| %>
+          <div class="flex justify-start items-center mb-3 space-y-4 max-w-screen-sm sm:space-y-0">
+            <div class="relative">
+              <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+                </svg>
+              </div>
+              <%= f.search_field :first_name_or_last_name_or_email_or_phone_or_city_or_state_cont, class: "block py-3 pl-10 w-full text-sm rounded-lg border-1 border-gray-300 sm:rounded-none sm:rounded-l-lg bg-gray-300 border-gray-600 text-gray-800 hover:bg-primary-700 focus:ring-primary-800" %>
+            </div>
+            <div>
+              <%= f.submit "Search", class: "text-white py-3 px-6 w-full text-sm font-medium text-center rounded-lg border cursor-pointer sm:rounded-none sm:rounded-r-lg bg-primary-600 hover:bg-primary-700 focus:ring-primary-800" %>
+            </div>
+          </div>
+          <!---->
+        <% end %>
+        <div class="my-2">
+          <%== pagy_nav(@pagy_leads) %>
+        </div>
+        <div class="my-3">
+          <table>
+            <thead>
+              <tr>
+                <th class="px-2 text-start"><%= sort_link(@q, :first_name, "First Name", default_order: :desc)%></th>
+                <th class="px-2 text-start"><%= sort_link(@q, :last_name, "Last Name", default_order: :desc)%></th>
+                <th class="px-2 text-start">Email</th>
+                <th class="px-2 text-start">Phone</th>
+                <th class="px-2 text-start"><%= sort_link(@q, :city, "City", default_order: :desc)%></th>
+                <th class="px-2 text-start"><%= sort_link(@q, :state, "State", default_order: :desc)%></th>
+                <th class="px-2 text-start">Notes</th>
+              </tr>
+            </thead>
+            <tbody class="">
+              <% @leads.each do |lead| %>
+                <%= tag.tr(class: cycle("bg-white", "bg-gray-200")) do %>
+                  <td class="px-2 rounded-s-lg"><%= lead.first_name %></td>
+                  <td class="px-2"><%= lead.last_name %></td>
+                  <td class="px-2"><%= lead.email %></td>
+                  <td class="px-2"><%= lead.phone %></td>
+                  <td class="px-2"><%= lead.city %></td>
+                  <td class="px-2"><%= lead.state %></td>
+                  <%= form_for(lead, url: admin_update_lead_path(lead), method: 'patch') do |f| %>
+                    <td>
+                      <%= f.text_field :note %>
+                    </td>
+                    <td class="px-4">
+                      <%= f.button do %>
+                        <svg class="w-6 h-6 text-gray-800 hover:text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11.917 9.724 16.5 19 7.5"/>
+                        </svg>
+                      <% end %>
+                    </td>
+                  <% end %>
+                  <td class="rounded-e-lg px-4">
+                    <%= button_to admin_destroy_lead_path(lead), method: :delete, remote: true, data: { turbo_method: :delete, turbo_confirm: "are you sure?" } do %>
+                      <svg class="w-6 h-6 text-gray-800 hover:text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
+                      </svg>
+                    <% end %>
+                  </td>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div class="my-2">
+          <%== pagy_nav(@pagy_leads) %>
+        </div>
+      </div>
+    </div>
+    <div class="bg-gray-800 border border-gray-700 rounded-lg p-8 md:p-12">
+      <a href="#" class="text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md bg-gray-700 text-purple-400 mb-2">
+        <svg class="w-3 h-3 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M2.038 5.61A2.01 2.01 0 0 0 2 6v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6c0-.12-.01-.238-.03-.352l-.866.65-7.89 6.032a2 2 0 0 1-2.429 0L2.884 6.288l-.846-.677Z"/>
+          <path d="M20.677 4.117A1.996 1.996 0 0 0 20 4H4c-.225 0-.44.037-.642.105l.758.607L12 10.742 19.9 4.7l.777-.583Z"/>
+        </svg>
+        Newsletter
+      </a>
+      <h2 class="text-white text-3xl font-extrabold mb-2">Truckerjobs4u Newsletter</h2>
+      <p class="text-lg font-normal text-gray-400 mb-4">View the list who signed up for the newsletter.</p>
+      <div class="flex justify-center items-center">
+        <div class="flex justify-center items-start w-full">
+          <div class="w-full">
+            <div class="mt-3">
+              <div class="my-2">
+                <%== pagy_nav(@pagy_newsletters) %>
+              </div>
+              <table class="w-full">
+                <thead class="text-gray-300">
+                  <tr>
+                    <th>Newsletter Email</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @newsletters.each do |newsletter| %>
+                    <%= tag.tr(class: cycle("bg-white", "bg-gray-100")) do %>
+                      <td class="ps-2 rounded-s-lg"><%= newsletter.email %></td>
+                      <td class="rounded-e-lg">
+                        <%= button_to admin_destroy_newsletter_path(newsletter), method: :delete, remote: true, data: { turbo_method: :delete, turbo_confirm: "are you sure?" } do %>
+                          <svg class="w-6 h-6 text-gray-800 hover:text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
+                          </svg>
+                        <% end %>
+                      </td>
+                    <% end %>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--New Blog-->

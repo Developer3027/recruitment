@@ -91,9 +91,9 @@
             <table width="100%">
               <tr>
                 <td style="text-align: center; padding: 10px; background-color: #000000;">
-                  <a href="">
+                  <%= link_to root_url, target: "_blank" do %>
                     <%= image_tag("https://blog3169.s3.us-east-2.amazonaws.com/logo1.png") %>
-                  </a>
+                  <% end %>
                 </td>
               </tr>
             </table>
@@ -114,7 +114,7 @@
                   <h2>Thank you for signing up to the newsletter.</h2>
                   <h4>Welcome to TRUCKERJOBS4U</h4>
                   <p>
-                    <%= @newsletter.newsletter_email %>, We are excited that you are interested in the latest in transportation and industry news! Our newsletter goes out once a month and highlights what's happening in the world of driving and jobs.
+                    <%= @newsletter.email %>, We are excited that you are interested in the latest in transportation and industry news! Our newsletter goes out once a month and highlights what's happening in the world of driving and jobs.
                   </p>
                   <p>
                     When you are ready to move on to the next best job and find that perfect career, remember we are here for you. From long haul to home nights, we will work to find you the career that's perfect for you, and when your needs change, we are here to help you see over the horizon.
@@ -131,9 +131,7 @@
             <table width="100%" style="background-color: #000000;">
               <tr>
                 <td style="padding: 8px 0 5px; text-align: center">
-                  
-                  <%= link_to "Driving Blog", root_url, target: "_blank", style: "color: #fde047; margin: auto 1em;" %>
-                  
+                  <%= link_to "Driving Blog", blog_url, target: "_blank", style: "color: #fde047; margin: auto 1em;" %>
                 </td>
               </tr>
             </table>
