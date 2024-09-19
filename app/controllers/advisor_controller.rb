@@ -48,7 +48,16 @@ class AdvisorController < ApplicationController
   private
 
   def blog_params
-    params.require(:blog).permit(:cover_image, :title, :content, :published_at, :user_id)
+    params.require(:blog).permit(:cover_image,
+                                    :title,
+                                    :content,
+                                    :published_at,
+                                    :seo_image,
+                                    :seo_image_alt,
+                                    :seo_title,
+                                    :seo_description,
+                                    :seo_keywords,
+                                    :user_id)
   end
 
   # Before filter to ensure only staff (admins and advisors) can access the

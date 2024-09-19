@@ -1,5 +1,5 @@
 <!--hero-->
-<section id="hero" class="mt-20 w-full min-h-svh bg-zinc-950 bg-no-repeat bg-center bg-cover bg-[url('https://blog3169.s3.us-east-2.amazonaws.com/w3070.webp')]">
+<section id="hero" class="mt-20 w-full min-h-svh bg-zinc-950 bg-no-repeat bg-center bg-cover bg-[url('https://truckerjobs.s3.us-east-2.amazonaws.com/truck_hyper_drive.jpg')]">
   <div class="flex justify-center items-center py-8 px-4 w-full min-h-svh lg:py-16 z-10 bg-gradient-to-br from-orange-400/40 via-teal-950/20 to-gray-500/30 relative">
     <div class="flex flex-col justify-center items-center lg:w-fit text-center md:mt-44 lg:mt-60 bg-slate-900/50 px-2 py-5 rounded-lg">
       <% if notice.present? %>
@@ -12,9 +12,9 @@
         Steer your career in the right direction.
       </span>
       <div class="flex flex-col justify-center items-center w-11/12">
-        <%= image_tag('https://blog3169.s3.us-east-2.amazonaws.com/logo1.png') %>
+        <%= image_tag('https://blog3169.s3.us-east-2.amazonaws.com/logo1.png', alt: "logo image in a military stencile style") %>
       </div>
-      <%= link_to "START YOUR JOURNEY", "#contact", class: "py-4 px-12 mt-6 rounded bg-yellow-300 text-slate-900 hover:bg-yellow-400 cursor-pointer" %>
+      <%= link_to "START YOUR JOURNEY", "#contact", class: "py-6 px-12 mt-6 rounded bg-yellow-300 text-slate-900 hover:bg-yellow-400 cursor-pointer" %>
     </div>
   </div>
 </section>
@@ -34,7 +34,7 @@
     <div class="lg:w-5/6 text-center">
       <div class="flex justify-center text-2xl sm:text-3xl my-6 text-gray-400">
         <span class="font-sans">About &nbsp;</span>
-        <%= image_tag("https://blog3169.s3.us-east-2.amazonaws.com/logo1.png", class: "max-w-64") %>
+        <%= image_tag("https://blog3169.s3.us-east-2.amazonaws.com/logo1.png", alt: "logo image in a military stencile style", class: "w-1/2 lg:w-1/4 object-contain", loading: "lazy") %>
       </div>
       <p class="font-normal sm:text-xl text-gray-400 my-6">
         Founded in 2024 by a group of experienced recruiting specialists, TruckerJobs4u.com emerged from a collective vision to revolutionize the truck driver recruitment industry. Our founders, having spent years navigating the complexities of driver placement, recognized a glaring need for a more personalized and honest approach to career planning for truck drivers.
@@ -58,7 +58,7 @@
   <!--Paths to choose-->
   <div class="w-full lg:max-w-4xl my-10 p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
     <div class="flex justify-center items-center">
-      <%= image_tag("https://blog3169.s3.us-east-2.amazonaws.com/logo1.png", class: "max-w-96") %>
+      <%= image_tag("https://blog3169.s3.us-east-2.amazonaws.com/logo1.png", alt: "logo image in a military stencile style", class: "max-w-96", loading: "lazy") %>
     </div>
     <p class="mb-5 text-base text-gray-500 sm:text-lg dark:text-gray-400">
       Which route would you prefer? <br/>
@@ -67,11 +67,11 @@
     <div class="md:grid-cols-3 items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
       <!--Inquiry Card-->
       <div class="md:w-1/3 md:max-h-[700px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <%= image_tag("https://blog3169.s3.us-east-2.amazonaws.com/StockCake-Sunset+Truck+Interior_1722132169.jpg", class: "rounded-t-lg", alt: "big rig interior of driver seat") %>
+        <%= image_tag("https://truckerjobs.s3.us-east-2.amazonaws.com/Sunset+Truck+Interior-min.jpg", width: "480", alt: "View of the truck driver seat at sunset.", class: "rounded-t-lg", loading: "lazy") %>
         <div class="p-5">
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Quick Inquiry</h5>
+          <span class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Quick Inquiry</span>
           <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Just starting to look around for better opportunities? We can help?</p>
-          <%= link_to "#contact", class: "inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" do %>
+          <%= link_to "#contact", class: "inline-flex items-center px-6 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" do %>
             Help Me
             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -81,15 +81,11 @@
       </div>
       <!--Application Card-->
       <div class="md:w-1/3 md:max-h-[700px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="#">
-          <%= image_tag("https://blog3169.s3.us-east-2.amazonaws.com/StockCake-Sunset+Trucking+Scene_1722132032.jpg", class: "rounded-t-lg", alt: "big rig with a orange skyline behind, sunset") %>
-        </a>
+        <%= image_tag("https://truckerjobs.s3.us-east-2.amazonaws.com/Sunset-Trucking-Scene-min.jpg", width: "480", alt: "White Kenworth with red stripes in yard under red evening sky.", class: "rounded-t-lg") %>
         <div class="p-5">
-          <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Application</h5>
-          </a>
+          <span class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Application</span>
           <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Have you been asked to fill out a application? Get yourself square here.</p>
-          <%= link_to "https://intelliapp.driverapponline.com/c/truckerjobs4u", target: "_blank", class: "inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" do %>
+          <%= link_to "https://intelliapp.driverapponline.com/c/truckerjobs4u", target: "_blank", class: "inline-flex items-center px-6 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" do %>
             Let's Go!
             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -100,11 +96,11 @@
       <!--Job Search Card-->
       <div class="md:w-1/3 md:max-h-[700px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <%= link_to root_path do %>
-          <%= image_tag("https://blog3169.s3.us-east-2.amazonaws.com/StockCake-Sunset+Truck+Lineup_1722132365.jpg", class: "rounded-t-lg", alt: "big rig with a orange skyline behind, sunset") %>
+          <%= image_tag("https://truckerjobs.s3.us-east-2.amazonaws.com/Sunset+Truck+Lineup-min.jpg", width: "480", alt: "Trucks lined up at the wharehouse as the sun rises.", class: "rounded-t-lg", loading: "lazy") %>
           <div class="p-5">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Job Search</h5>
+            <span class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Job Search</span>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Want to browse the jobs we are currently placeing driver for? Drive Safe.</p>
-            <%= link_to "https://www.classadrivers.com/truck-driving-jobs/c-5606-truckerjobs4u", target: "_blank", class: "inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" do %>
+            <%= link_to "https://www.classadrivers.com/truck-driving-jobs/c-5606-truckerjobs4u", target: "_blank", class: "inline-flex items-center px-6 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" do %>
               Find it!
               <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -116,7 +112,7 @@
     </div>
   </div>
 </section>
-<!--General information on site / app-->
+<!--Show Blog Articles-->
 <section id="general" class="flex justify-center items-center bg-gray-900">
   <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
     <div class="max-w-screen-md mb-8 lg:mb-16">
@@ -126,43 +122,28 @@
     <div class="space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0">
       <div>
         <!--blog1-->
-        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <%= link_to blog_show_path(@blog.first) do %>
-            <%= image_tag @blog.first.cover_image, class: "rounded-t-lg", alt: "Blog Image" %>
-          <% end %>
-          <div class="p-5">
+        <% if @blog.first.present? %>
+          <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <%= link_to blog_show_path(@blog.first) do %>
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= @blog.first.title %></h5>
+              <%= image_tag @blog.first.cover_image, alt: "Blog Image", class: "rounded-t-lg", loading: "lazy" %>
             <% end %>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><%= @blog.first.content.to_plain_text.truncate_words(30) %></p>
-            <%= link_to blog_show_path(@blog.first), class: "inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" do %>
-              Read more
-              <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-              </svg>
-            <% end %>
+            <div class="p-5">
+              <%= link_to blog_show_path(@blog.first) do %>
+                <span class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= @blog.first.title %></span>
+              <% end %>
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><%= @blog.first.content.to_plain_text.truncate_words(30) %></p>
+              <%= link_to blog_show_path(@blog.first), class: "inline-flex items-center px-6 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" do %>
+                Review Article
+                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                </svg>
+              <% end %>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
       <!--Blog2-->
       <div>
-        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <%= link_to blog_show_path(@blog.last) do %>
-            <%= image_tag @blog.last.cover_image, class: "rounded-t-lg", alt: "Blog Image" %>
-          <% end %>
-          <div class="p-5">
-            <%= link_to blog_show_path(@blog.last) do %>
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= @blog.last.title %></h5>
-            <% end %>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><%= @blog.last.content.to_plain_text.truncate_words(30) %></p>
-            <%= link_to blog_show_path(@blog.last), class: "inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" do %>
-              Read more
-              <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-              </svg>
-            <% end %>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -172,8 +153,8 @@
   <div class="flex flex-col justify-center items-center">
     <div class="w-full lg:max-w-4xl my-10 p-4 text-center border rounded-lg shadow sm:p-8 bg-gray-900 border-gray-700">
       <div class="grid sm:grid-cols-2">
-        <div class="hidden md:block mx-auto">
-          <%= image_tag("https://blog3169.s3.us-east-2.amazonaws.com/StockCake-Sunset+Truck+Interior_1722132169.jpg", class: "rounded-lg w-72 sm:w-full", alt: "big rig interior of driver seat") %>
+        <div class="hidden md:block mx-auto my-auto">
+          <%= image_tag("https://truckerjobs.s3.us-east-2.amazonaws.com/Sunset+Truck+Interior-min.jpg", alt: "View of the truck drivers seat at dusk.", class: "rounded-lg w-72 sm:w-full", loading: "lazy") %>
         </div>
         <div class="flex flex-col justify-center items-center">
           <div class="w-full lg:max-w-xl p-6 space-y-8 sm:p-8 rounded-lg lg:ml-6">

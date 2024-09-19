@@ -5,7 +5,7 @@
         <%= @blog.title %>
       </h1>
       <% if @blog.cover_image.present? %>
-        <%= image_tag @blog.cover_image, class: "rounded-lg md:w-3/4 lg:w-full h-96 object-cover" %>
+        <%= image_tag @blog.cover_image, alt: "blog image", class: "rounded-lg md:w-3/4 lg:w-full h-96 object-cover" %>
       <% end %>
       <div class="flex justify-start md:w-3/4 lg:w-4/5 my-3 md:mx-1 w-full">
         <span>Author: <%= @blog.admin.first_name %>&nbsp;<%= @blog.admin.last_name %></span>

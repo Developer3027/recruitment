@@ -81,3 +81,7 @@ gem "meta-tags", "~> 2.22"
 
 # AWS SDK for S3
 gem "aws-sdk-s3", "~> 1.162"
+
+gem "rack-brotli", "~> 2.0"
+
+gem "friendly_id", "~> 5.5"

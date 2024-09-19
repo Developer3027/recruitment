@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Truckerjobs4u02</title>
-    <%= display_meta_tags site: "" %>
+    <title>TRUCKERJOBS4U</title>
     <%= favicon_link_tag "favicon.png", rel: "icon"%>
+    <%= display_meta_tags %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= preload_link_tag "https://blog3169.s3.us-east-2.amazonaws.com/truck_hyper_drive.jpg", as: "image" %>
   </head>
   <body class="bg-black">
     <header class="">
