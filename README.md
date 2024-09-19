@@ -39,3 +39,17 @@ meta tags:
   
   * keywords
   * author
+
+  **Image Information**
+
+  Hero image size - desktop: 1920 x 1080 (400kb - max)
+  Hero image size - mobile: 1080 x 680 (200 kb - max)
+
+  Blog image size - both: 1080 x 680
+
+  seo card image size: 1200 x 675
+  file size: 100KB max
+
+  blog article image size:
+
+
