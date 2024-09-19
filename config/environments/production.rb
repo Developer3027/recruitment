@@ -39,6 +39,17 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :amazon # :local
 
+  # Settings for Action Mailer for smtp through mailersend.net
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:         'smtp.mailersend.net',
+    port:            587,
+    user_name:       Rails.application.credentials[:mailersend_username],
+    password:        Rails.application.credentials[:mailersend_password],
+    authentication:  'plain',
+    enable_starttls: true
+  }
+
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
   # config.action_cable.url = "wss://example.com/cable"
