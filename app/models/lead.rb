@@ -5,6 +5,15 @@ class Lead < ApplicationRecord
   # validate the presence of the fields
   validates :first_name, :last_name, :email, :phone, :city, :state, presence: true
 
+  # ransack - create a hash of attributes that can be searched
+  def self.ransackable_attributes(auth_object = nil)
+    %w[created_at updated_at first_name last_name email phone city state note]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
+
   private
 
   # Reformat phone number to (123) 456-7890 from whatever the user entered

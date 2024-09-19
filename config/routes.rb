@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # get 'admin/index'
 
   # privacy page
   get "privacy", to: "privacy#index", as: :privacy
@@ -12,6 +13,17 @@ Rails.application.routes.draw do
   authenticated :admin, lambda { |a| a.role == "advisor" } do
     root to: "advisor#index", as: :advisor
   end
+
+   # Root route for admin
+   authenticated :admin, lambda { |a| a.role == "admin" } do
+    root to: "admin#index", as: :admin
+  end
+  # Update action for update note for lead through admin dashboard
+  patch "update_lead/:id", to: "admin#update_lead", as: :admin_update_lead
+  # Delete action for the destroy lead
+  delete "destroy_lead/:id", to: "admin#destroy_lead", as: :admin_destroy_lead
+  # Delete action for the destroy newsletter
+  delete "destroy_newsletter/:id", to: "admin#destroy_newsletter", as: :admin_destroy_newsletter
 
   # get the blog general root
   get "blog", to: "blog#index", as: :blog
