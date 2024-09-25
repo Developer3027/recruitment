@@ -83,5 +83,5 @@ test:
 production:
   <<: *default
   database: truckerjobs4u_02_production
-  username: truckerjobs4u_02
-  password: <%= ENV["TRUCKERJOBS4U_02_DATABASE_PASSWORD"] %>
+  username: postgres
+  password: <%= ENV["POSTGRES_PASSWORD"] %>

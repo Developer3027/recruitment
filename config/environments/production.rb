@@ -42,10 +42,10 @@ Rails.application.configure do
   # Settings for Action Mailer for smtp through mailersend.net
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:         'smtp.mailersend.net',
+    address:         'smtp.sendgrid.net',
     port:            587,
-    user_name:       Rails.application.credentials[:mailersend_username],
-    password:        Rails.application.credentials[:mailersend_password],
+    user_name:       Rails.application.credentials[:sendgrid_username],
+    password:        Rails.application.credentials[:sendgrid_password],
     authentication:  'plain',
     enable_starttls: true
   }

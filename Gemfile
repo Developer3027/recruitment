@@ -89,3 +89,5 @@ gem "friendly_id", "~> 5.5"
 gem "ransack", "~> 4.2"
 
 gem "pagy", "~> 9.0"
+
+gem "bullet", "~> 7.2"
