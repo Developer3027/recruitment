@@ -49,9 +49,7 @@ class AdminController < ApplicationController
     @newsletter = Newsletter.find(params[:id])
     @newsletter.destroy!
 
-    respond_to do |format|
-      redirect_to admin_path, flash: { admin_alert: "Newsletter was successfully destroyed." }
-    end
+    redirect_to admin_path, flash: { admin_alert: "Newsletter was successfully destroyed." }
   end
 
   private
