@@ -39,6 +39,9 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :amazon # :local
 
+    # config action mailer per devise
+    config.action_mailer.default_url_options = { host: 'https://guarded-tundra-17159-429d7b75baea.herokuapp.com/', port: 3000 }
+
   # Settings for Action Mailer for smtp through mailersend.net
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
