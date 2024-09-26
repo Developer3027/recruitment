@@ -12,14 +12,12 @@ class LandingController < ApplicationController
     if newsletter_params[:pp_check] == "0" || newsletter_params[:pp_check] == false
       redirect_to root_path, alert: "Please check the privacy policy"
     else
-      respond_to do |format|
-        if @newsletter.save
-          # Send email to driver
-          NewsletterMailer.new_newsletter_email(@newsletter).deliver_now
-          format.html { redirect_to root_path, notice: "Thank you for signing up!" }
-        else
-          format.html { redirect_to root_path, alert: "Failed to sign up: #{@newsletter.errors.full_messages.join(', ')}" }
-        end
+      if @newsletter.save
+        # Send email to driver
+        NewsletterMailer.new_newsletter_email(@newsletter).deliver_now
+        format.html { redirect_to root_path, notice: "Thank you for signing up!" }
+      else
+        format.html { redirect_to root_path, alert: "Failed to sign up: #{@newsletter.errors.full_messages.join(', ')}" }
       end
     end
   end
