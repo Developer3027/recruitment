@@ -44,14 +44,15 @@ Rails.application.configure do
 
   # Settings for Action Mailer for smtp through mailersend.net
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:         'smtp.sendgrid.net',
-    port:            465,
-    user_name:       'apikey',
-    password:        Rails.application.credentials[:sendgrid_password],
-    authentication:  'plain',
-    enable_starttls: true
-  }
+  config.action_mailer.perform_deleiveries = true
+  # config.action_mailer.smtp_settings = {
+  #   address:         'smtp.sendgrid.net',
+  #   port:            465,
+  #   user_name:       'apikey',
+  #   password:        Rails.application.credentials[:sendgrid_password],
+  #   authentication:  'plain',
+  #   enable_starttls: true
+  # }
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
