@@ -56,22 +56,22 @@
 </section>
 <section id="paths" class="flex justify-center items-center w-full">
   <!--Paths to choose-->
-  <div class="w-full lg:max-w-4xl my-10 p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+  <div class="w-full lg:max-w-4xl my-10 p-4 text-center border rounded-lg shadow sm:p-8 bg-gray-800 border-gray-700">
     <div class="flex justify-center items-center">
       <%= image_tag("https://blog3169.s3.us-east-2.amazonaws.com/logo1.png", alt: "logo image in a military stencile style", class: "max-w-96", loading: "lazy") %>
     </div>
-    <p class="mb-5 text-base text-gray-500 sm:text-lg dark:text-gray-400">
+    <p class="mb-5 text-base sm:text-lg text-gray-400">
       Which route would you prefer? <br/>
       Fill out a quick form, letting our recruiters know a bit about you and what you are looking for or have you found a job and are ready to get serious about seeing what's over the horizon?
     </p>
     <div class="md:grid-cols-3 items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
       <!--Inquiry Card-->
-      <div class="md:w-1/3 md:max-h-[700px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div class="md:w-1/3 md:max-h-[700px] border rounded-lg shadow bg-gray-800 border-gray-700">
         <%= image_tag("https://truckerjobs.s3.us-east-2.amazonaws.com/Sunset+Truck+Interior-min.jpg", width: "480", alt: "View of the truck driver seat at sunset.", class: "rounded-t-lg", loading: "lazy") %>
         <div class="p-5">
-          <span class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Quick Inquiry</span>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Just starting to look around for better opportunities? We can help?</p>
-          <%= link_to "#contact", class: "inline-flex items-center px-6 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" do %>
+          <span class="mb-2 text-2xl font-bold tracking-tight text-white">Quick Inquiry</span>
+          <p class="mb-3 font-normal text-gray-400">Just starting to look around for better opportunities? We can help?</p>
+          <%= link_to "#contact", class: "inline-flex items-center px-6 py-3 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:outline-none bg-blue-600 hover:bg-blue-700 focus:ring-blue-800" do %>
             Help Me
             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -80,12 +80,12 @@
         </div>
       </div>
       <!--Application Card-->
-      <div class="md:w-1/3 md:max-h-[700px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div class="md:w-1/3 md:max-h-[700px] border rounded-lg shadow bg-gray-800 border-gray-700">
         <%= image_tag("https://truckerjobs.s3.us-east-2.amazonaws.com/Sunset-Trucking-Scene-min.jpg", width: "480", alt: "White Kenworth with red stripes in yard under red evening sky.", class: "rounded-t-lg") %>
         <div class="p-5">
-          <span class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Application</span>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Have you been asked to fill out a application? Get yourself square here.</p>
-          <%= link_to "https://intelliapp.driverapponline.com/c/truckerjobs4u", target: "_blank", class: "inline-flex items-center px-6 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" do %>
+          <span class="mb-2 text-2xl font-bold tracking-tight text-white">Application</span>
+          <p class="mb-3 font-normal text-gray-400">Have you been asked to fill out a application? Get yourself square here.</p>
+          <%= link_to "https://intelliapp.driverapponline.com/c/truckerjobs4u", target: "_blank", class: "inline-flex items-center px-6 py-3 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:outline-none bg-blue-600 hover:bg-blue-700 focus:ring-blue-800" do %>
             Let's Go!
             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -94,13 +94,13 @@
         </div>
       </div>
       <!--Job Search Card-->
-      <div class="md:w-1/3 md:max-h-[700px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div class="md:w-1/3 md:max-h-[700px] border rounded-lg shadow bg-gray-800 border-gray-700">
         <%= link_to root_path do %>
           <%= image_tag("https://truckerjobs.s3.us-east-2.amazonaws.com/Sunset+Truck+Lineup-min.jpg", width: "480", alt: "Trucks lined up at the wharehouse as the sun rises.", class: "rounded-t-lg", loading: "lazy") %>
           <div class="p-5">
-            <span class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Job Search</span>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Want to browse the jobs we are currently placeing driver for? Drive Safe.</p>
-            <%= link_to "https://www.classadrivers.com/truck-driving-jobs/c-5606-truckerjobs4u", target: "_blank", class: "inline-flex items-center px-6 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" do %>
+            <span class="mb-2 text-2xl font-bold tracking-tight text-white">Job Search</span>
+            <p class="mb-3 font-normal text-gray-400">Want to browse the jobs we are currently placeing driver for? Drive Safe.</p>
+            <%= link_to "https://www.classadrivers.com/truck-driving-jobs/c-5606-truckerjobs4u", target: "_blank", class: "inline-flex items-center px-6 py-3 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:outline-none bg-blue-600 hover:bg-blue-700 focus:ring-blue-800" do %>
               Find it!
               <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
