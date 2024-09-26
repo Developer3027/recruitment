@@ -37,21 +37,21 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = "X-Accel-Redirect" # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :amazon # :local
+  config.active_storage.service = :local
 
   # config action mailer per devise
   config.action_mailer.default_url_options = { host: 'https://www.truckerjobs4u.com/', port: 3000 }
 
   # Setting Action Mailer for smtp through sendgrid.net
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:         'smtp.sendgrid.net',
-    port:            587,
-    user_name:       'apikey',
-    password:        Rails.application.credentials.dig(:sendgrid_password),
-    authentication:  'plain',
-    enable_starttls: true
-  }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address:         'smtp.sendgrid.net',
+  #   port:            587,
+  #   user_name:       'apikey',
+  #   password:        Rails.application.credentials.dig(:sendgrid_password),
+  #   authentication:  'plain',
+  #   enable_starttls: true
+  # }
 
   # config.action_mailer.perform_deliveries = true
 

@@ -45,21 +45,21 @@ Rails.application.configure do
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :amazon # :local
+  config.active_storage.service = :local
 
   # config action mailer per devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Settings for Action Mailer for smtp through sendgrid.net
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:         'smtp.sendgrid.net',
-    port:            587,
-    user_name:       'apikey', # Rails.application.credentials.dig(:sendgrid_username),
-    password:        Rails.application.credentials.dig(:sendgrid_password),
-    authentication:  'plain',
-    enable_starttls: true
-  }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address:         'smtp.sendgrid.net',
+  #   port:            587,
+  #   user_name:       'apikey', # Rails.application.credentials.dig(:sendgrid_username),
+  #   password:        Rails.application.credentials.dig(:sendgrid_password),
+  #   authentication:  'plain',
+  #   enable_starttls: true
+  # }
 
   # Use letter_opener to open emails in the browser
   # config.action_mailer.delivery_method = :letter_opener
