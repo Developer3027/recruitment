@@ -43,8 +43,8 @@ Rails.application.configure do
     config.action_mailer.default_url_options = { host: 'https://guarded-tundra-17159-429d7b75baea.herokuapp.com/', port: 3000 }
 
   # Settings for Action Mailer for smtp through mailersend.net
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deleiveries = true
+  # config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
   # config.action_mailer.smtp_settings = {
   #   address:         'smtp.sendgrid.net',
   #   port:            465,
