@@ -39,20 +39,22 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :amazon # :local
 
-    # config action mailer per devise
-    config.action_mailer.default_url_options = { host: 'https://guarded-tundra-17159-429d7b75baea.herokuapp.com/', port: 3000 }
+  # config action mailer per devise
+  config.action_mailer.default_url_options = { host: 'https://guarded-tundra-17159-429d7b75baea.herokuapp.com/', port: 3000 }
 
   # Settings for Action Mailer for smtp through mailersend.net
-  # config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    domain:          'truckerjobs4u.com',
+    address:         'smtp.sendgrid.net',
+    port:            587,
+    user_name:       'apikey',
+    password:        Rails.application.credentials[:sendgrid_password],
+    authentication:  'plain',
+    enable_starttls: true
+  }
+
   config.action_mailer.perform_deliveries = true
-  # config.action_mailer.smtp_settings = {
-  #   address:         'smtp.sendgrid.net',
-  #   port:            465,
-  #   user_name:       'apikey',
-  #   password:        Rails.application.credentials[:sendgrid_password],
-  #   authentication:  'plain',
-  #   enable_starttls: true
-  # }
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
