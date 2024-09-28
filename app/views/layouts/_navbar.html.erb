@@ -1,7 +1,7 @@
 <!--The stimulus data is left in the drop down menu. Add the data controller actions-->
 <!-- //? Sticky Top Navbar -->
 <div class="fixed top-0 z-50 w-full" data-controller="navbar" data-action="resize@window->navbar#closeOnLargerScreen keyup@window->navbar#closeWithEscape">
-  <nav class="relative flex justify-between items-center p-4 h-20 text-terminal-window bg-zinc-800 text-gray-100">
+  <nav class="relative flex justify-between items-center p-4 h-20 bg-zinc-800 text-gray-100">
     <div class="flex justify-evenly items-center w-full">
       <!-- //? Left section links home -->
       <div class="flex justify-center items-center ms-4">
@@ -22,8 +22,10 @@
   <nav class="hidden bg-white absolute w-2/3 right-2 h-80 overflow-y-auto rounded-b-sm" data-navbar-target="content">
     <ul class="flex flex-col py-2 px-3">
       <%= link_to root_path do %>
-        <li class="flex border border-terminal-window p-2 my-1 rounded-sm">Blog</li>
+        <li class="flex border p-2 my-1 rounded-sm">Blog</li>
       <% end %>
     </ul>
   </nav>
 </div>
+91103731
+623766326
