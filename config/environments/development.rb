@@ -51,15 +51,15 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Settings for Action Mailer for smtp through sendgrid.net
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   address:         'smtp.sendgrid.net',
-  #   port:            587,
-  #   user_name:       'apikey', # Rails.application.credentials.dig(:sendgrid_username),
-  #   password:        Rails.application.credentials.dig(:sendgrid_password),
-  #   authentication:  'plain',
-  #   enable_starttls: true
-  # }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    user_name: 'apikey',
+    password: Rails.application.credentials[:sendgrid_password],
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
 
   # Use letter_opener to open emails in the browser
   # config.action_mailer.delivery_method = :letter_opener
@@ -68,7 +68,7 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
