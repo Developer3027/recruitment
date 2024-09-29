@@ -33,11 +33,13 @@ class AdminController < ApplicationController
   def destroy_lead
     #! TODO: Write unit test for this action
     @lead = Lead.find(params[:id])
-    @lead.destroy!
 
     respond_to do |format|
-      redirect_to admin_path, flash: { admin_alert: "Lead was successfully destroyed." }
-      format.json { head :no_content }
+      if @lead.destroy!
+        redirect_to admin_path, flash: { admin_alert: "Lead was successfully destroyed." }
+      else
+        redirect_to admin_path
+      end
     end
   end
 
