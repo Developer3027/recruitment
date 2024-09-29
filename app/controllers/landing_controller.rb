@@ -15,7 +15,7 @@ class LandingController < ApplicationController
       respond_to do |format|
         if @newsletter.save
           # Send email to driver
-          # NewsletterMailer.new_newsletter_email(@newsletter).deliver_now
+          NewsletterMailer.new_newsletter_email(@newsletter).deliver_now
           format.html { redirect_to root_path, notice: "Thank you for signing up!" }
         else
           format.html { redirect_to root_path, alert: "Failed to sign up: #{@newsletter.errors.full_messages.join(', ')}" }
