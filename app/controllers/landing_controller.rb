@@ -38,10 +38,10 @@ class LandingController < ApplicationController
             #User.create(email: params[:landing][:email], password: params[:landing][:last_name])
 
             # Send an email to the admin
-            # LeadMailer.new_lead_email(@lead).deliver_now
+            LeadMailer.new_lead_email(@lead).deliver_now
 
             # Send an thank you email to the driver
-            # DriverMailer.new_driver_email(@lead).deliver_now
+            DriverMailer.new_driver_email(@lead).deliver_now
 
             format.html { redirect_to root_path, notice: "We will reach out soon! Be sure to check your email" }
           else
