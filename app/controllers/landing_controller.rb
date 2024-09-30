@@ -1,7 +1,9 @@
 class LandingController < ApplicationController
   # GET /landings
   def index
-    @blog = Blog.published.sorted
+    @top_blogs = Blog.published.includes(
+      [:admin, :rich_text_content, cover_image_attachment: { blob: [] }]
+      ).order(views: :desc).limit(2)
   end
 
   # POST /landing/newsletter

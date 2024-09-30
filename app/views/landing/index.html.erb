@@ -116,35 +116,41 @@
 <section id="general" class="flex justify-center items-center bg-gray-900">
   <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
     <div class="max-w-screen-md mb-8 lg:mb-16">
-      <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-white">Articles for TruckerJobs4u</h2>
-      <p class="text-gray-500 sm:text-xl dark:text-gray-400">TruckerJobs4u has one central theme. To free you from the stress of the job hunt. With TruckerJobs4u you get a dedicated professional who's top priorty is to help you find the driving career you've worked so hard for.</p>
+      <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-white">Blogs on TRUCKERJOBS4U</h2>
+      <p class="text-gray-500 sm:text-xl dark:text-gray-400">TRUCKERJOBS4U has one central theme. To free you from the stress of the job hunt. With TRUCKERJOBS4U you get a dedicated professional who's top priorty is to help you find the driving career you've worked so hard for.</p>
     </div>
     <div class="space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0">
-      <div>
-        <!--blog1-->
-        <% if @blog.first.present? %>
-          <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <%= link_to blog_show_path(@blog.first) do %>
-              <%= image_tag @blog.first.cover_image, alt: "Blog Image", class: "rounded-t-lg", loading: "lazy" %>
+      <!--blog1-->
+      <% @top_blogs&.each do |blog| %>
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <%= link_to blog_show_path(blog) do %>
+            <% if blog.cover_image.present? %>
+              <%= image_tag blog.cover_image, alt: "Blog Image", class: "rounded-t-lg", loading: "lazy" %>
             <% end %>
-            <div class="p-5">
-              <%= link_to blog_show_path(@blog.first) do %>
-                <span class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= @blog.first.title %></span>
-              <% end %>
-              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><%= @blog.first.content.to_plain_text.truncate_words(30) %></p>
-              <%= link_to blog_show_path(@blog.first), class: "inline-flex items-center px-6 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" do %>
-                Review Article
-                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-              <% end %>
-            </div>
+          <% end %>
+          <div class="p-5">
+            <%= link_to blog_show_path(blog) do %>
+              <span class="mb-2 text-2xl font-bold tracking-tight text-white"><%= blog.title %></span>
+              <div class="flex justify-between py-1 px-2">
+                <div class="flex flex-col">
+                  <span class="font-medium text-slate-400"><%= "Author: #{blog.admin.first_name} #{blog.admin.last_name}" %></span>
+                  <span class="font-medium text-slate-400"><%= "Date: #{blog.created_at.to_date.inspect}" %></span>
+                </div>
+                <div>
+                  <span class="text-slate-400"><%= pluralize(blog.views, "review") %></span>
+                </div>
+              </div>
+            <% end %>
+            <p class="mb-3 font-normal text-slate-400"><%= blog.content.to_plain_text.truncate_words(30) %></p>
+            <%= link_to blog_show_path(blog), class: "inline-flex items-center px-6 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" do %>
+              Review Article
+              <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+              </svg>
+            <% end %>
           </div>
-        <% end %>
-      </div>
-      <!--Blog2-->
-      <div>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </section>
