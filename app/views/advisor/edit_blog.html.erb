@@ -53,8 +53,14 @@
                 <%= f.label :seo_title, class: "block mb-2 text-sm font-medium text-white px-3" %>
                 <%= f.text_field :seo_title, class: "border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" %>
               </div>
-              <div class="m-2">
-                <%= f.label :seo_description, class: "block mb-2 text-sm font-medium text-white px-3" %>
+              <div class="p-2">
+                <div class="flex items-center mb-2">
+                  <%= f.label :seo_description, class: "block text-sm font-medium text-white pe-2" %>
+                  <svg class="w-5 h-5 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                    <span class="text-sm text-gray-400">At least 100 characters</span>
+                  </svg>
+                </div>
                 <%= f.text_field :seo_description, class: "border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" %>
               </div>
               <div class="flex flex-col justify-center items-center my-2 w-full lg:w-4-5 text-white bg-gray-500 py-2 sm:px-2 rounded-lg ">

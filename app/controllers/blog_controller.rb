@@ -26,6 +26,7 @@ class BlogController < ApplicationController
                     author: "#{@blog.admin.first_name} #{@blog.admin.last_name}",
                     image: @blog.seo_image.attached? ? "https://truckerjobs.s3.us-east-2.amazonaws.com/#{@blog.seo_image.key}" : "https://truckerjobs.s3.us-east-2.amazonaws.com/#{@blog.cover_image.key}",
                     image_alt: @blog.seo_image_alt,
+                    publish_date: @blog.published_at.to_date,
                     site: "TRUCKERJOBS4U.com"
                   }
     @blog.update(views: @blog.views + 1)
