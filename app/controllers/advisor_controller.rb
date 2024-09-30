@@ -5,7 +5,7 @@ class AdvisorController < ApplicationController
 
   def index
     @blog = Blog.new
-    @blogs = Blog.order(created_at: :desc)
+    @blogs = Blog.includes([:rich_text_content, cover_image_attachment: { blob: [] }]).order(created_at: :desc)
   end
 
   def new_blog
@@ -13,17 +13,18 @@ class AdvisorController < ApplicationController
   end
 
   def list_blogs
-    @blogs = Blog.all
+    @blogs = Blog.all.includes([:rich_text_content, cover_image_attachment: { blob: [] }])
   end
 
   def edit_blog
-    @blog = Blog.friendly.find(params[:id])
+    @blog = Blog.includes([:rich_text_content, cover_image_attachment: { blob: [] }]).friendly.find(params[:id])
   end
 
   def create_blog
     @blog = Blog.new(blog_params)
     @blog.admin = current_admin
     if @blog.save
+      @blog.update(views: @blog.views + 1)
       redirect_to advisor_list_blogs_path
     else
       render :new, status: :unprocessable_entity

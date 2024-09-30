@@ -38,7 +38,7 @@ class BlogController < ApplicationController
   # Otherwise, show only published blogs.
   def set_blogs
     if current_admin&.role&.in?(["admin", "advisor"])
-      @blog = Blog.sorted.includes([ :admin, :advisor, :rich_text_content, cover_image_attachment: { blob: [] }])
+      @blog = Blog.sorted.includes([ :admin, :rich_text_content, cover_image_attachment: { blob: [] }])
     else
         @blog = Blog.published.sorted.includes([:admin, :rich_text_content, cover_image_attachment: { blob: [] }])
     end
