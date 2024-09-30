@@ -15,14 +15,15 @@ class BlogController < ApplicationController
                   image: @blog.seo_image.attached? ? "https://truckerjobs.s3.us-east-2.amazonaws.com/#{@blog.seo_image.key}" : "https://truckerjobs.s3.us-east-2.amazonaws.com/#{@blog.cover_image.key}",
                   type: "website",
                   keywords: @blog.seo_keywords,
-                  url: url_for(@blog),
+                  url: "https://truckerjobs4u.com/blog/#{@blog.slug}",
                   author: "#{@blog.admin.first_name} #{@blog.admin.last_name}",
                   publish_date: @blog.published_at.to_date,
                   og: {
                     title: @blog.seo_title,
                     description: @blog.seo_description,
                     type: "website",
-                    url: url_for(@blog),
+                    url: "https://truckerjobs4u.com/blog/#{@blog.slug}",
+                    author: "#{@blog.admin.first_name} #{@blog.admin.last_name}",
                     image: @blog.seo_image.attached? ? "https://truckerjobs.s3.us-east-2.amazonaws.com/#{@blog.seo_image.key}" : "https://truckerjobs.s3.us-east-2.amazonaws.com/#{@blog.cover_image.key}",
                     image_alt: @blog.seo_image_alt,
                     site: "TRUCKERJOBS4U.com"
