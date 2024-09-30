@@ -12,6 +12,7 @@ class BlogController < ApplicationController
     @blog = Blog.friendly.find(params[:id])
     set_meta_tags title: @blog.seo_title,
                   description: @blog.seo_description,
+                  image: @blog.seo_image.attached? ? "https://truckerjobs.s3.us-east-2.amazonaws.com/#{@blog.seo_image.key}" : "https://truckerjobs.s3.us-east-2.amazonaws.com/#{@blog.cover_image.key}",
                   type: "website",
                   keywords: @blog.seo_keywords,
                   url: url_for(@blog),
@@ -22,7 +23,7 @@ class BlogController < ApplicationController
                     description: @blog.seo_description,
                     type: "website",
                     url: url_for(@blog),
-                    image: @blog.seo_image.attached? ? "https://truckerjobs.s3.us-east-2.amazonaws.com/#{@blog.seo_image.key}" : url_for(@blog.cover_image),
+                    image: @blog.seo_image.attached? ? "https://truckerjobs.s3.us-east-2.amazonaws.com/#{@blog.seo_image.key}" : "https://truckerjobs.s3.us-east-2.amazonaws.com/#{@blog.cover_image.key}",
                     image_alt: @blog.seo_image_alt,
                     site: "TRUCKERJOBS4U.com"
                   }
