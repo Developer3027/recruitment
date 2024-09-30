@@ -13,6 +13,7 @@
       <div class="flex flex-grow justify-end items-center me-4">
         <ul class="flex space-x-2">
           <li class="hidden md:flex"><%= link_to "Blog", blog_path %></li>
+          <li class="hidden md:flex"><%= link_to "Contact", root_path + "#contact" %></li>
         </ul>
         <button class="md:hidden pb-1 w-6" role="button" aria-label="menu" data-action="click->navbar#toggle">&#9776</button>
       </div>
@@ -21,8 +22,11 @@
   <!-- //? Dropdown menu - mobile -->
   <nav class="hidden bg-white absolute w-2/3 right-2 h-80 overflow-y-auto rounded-b-sm" data-navbar-target="content">
     <ul class="flex flex-col py-2 px-3">
-      <%= link_to root_path do %>
+      <%= link_to blog_path do %>
         <li class="flex border p-2 my-1 rounded-sm">Blog</li>
+      <% end %>
+      <%= link_to root_path + "#contact" do %>
+        <li class="flex border p-2 my-1 rounded-sm">Contact</li>
       <% end %>
     </ul>
   </nav>

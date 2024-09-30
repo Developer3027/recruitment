@@ -3,10 +3,10 @@
   <div class="flex justify-center items-center py-8 px-4 w-full min-h-svh lg:py-16 z-10 bg-gradient-to-br from-orange-400/40 via-teal-950/20 to-gray-500/30 relative">
     <div class="flex flex-col justify-center items-center lg:w-fit text-center md:mt-44 lg:mt-60 bg-slate-900/50 px-2 py-5 rounded-lg">
       <% if notice.present? %>
-        <p class="py-2 px-3 bg-black mb-5 text-teal-400 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+        <p class="py-2 px-3 bg-black mb-5 text-teal-400 text-base md:text-lg rounded-lg inline-block max-w-sm" id="notice"><%= notice %></p>
       <% end %>
       <% if alert.present? %>
-        <p class="py-2 px-3 bg-black mb-5 text-rose-400 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
+        <p class="py-2 px-3 bg-black mb-5 text-rose-400 text-base md:text-lg rounded-lg inline-block max-w-sm" id="alert"><%= alert %></p>
       <% end %>
       <span class="mb-1 text-2xl font-semibold tracking-tight leading-none md:text-4xl lg:text-4xl text-white">
         Steer your career in the right direction.
