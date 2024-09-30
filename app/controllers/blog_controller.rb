@@ -1,21 +1,14 @@
 class BlogController < ApplicationController
-  before_action :set_blogs, only: %i[show]
+  before_action :set_blogs
   # GET /blog
   #
   # Shows all blogs if user is an admin or advisor, otherwise only published blogs.
-  def index
-    if current_admin&.role&.in?(["admin", "advisor"])
-      @blog = Blog.sorted
-    else
-      @blog = Blog.published.sorted
-    end
-  end
+  def index; end
 
   # GET /blog/:id
   #
   # Shows a single blog if user is an admin or advisor, otherwise only published blogs.
   def show
-
     @blog = Blog.friendly.find(params[:id])
     set_meta_tags title: @blog.seo_title,
                   description: @blog.seo_description,
@@ -33,20 +26,21 @@ class BlogController < ApplicationController
                     image_alt: @blog.seo_image_alt,
                     site: "TRUCKERJOBS4U.com"
                   }
-    if current_admin&.role&.in?(["admin", "advisor"])
-      @blog = Blog.friendly.find(params[:id])
-    else
-      @blog = Blog.published.friendly.find(params[:id])
-    end
+    @blog.update(views: @blog.views + 1)
+    # set_blogs
   end
 
   private
 
+  # Before filter for blog index and show actions.
+  #
+  # If a user is signed in as an admin or advisor, show all blogs.
+  # Otherwise, show only published blogs.
   def set_blogs
     if current_admin&.role&.in?(["admin", "advisor"])
-      @blog = Blog.sorted
+      @blog = Blog.sorted.includes([ :admin, :advisor, :rich_text_content, cover_image_attachment: { blob: [] }])
     else
-      @blog = Blog.published.sorted
+        @blog = Blog.published.sorted.includes([:admin, :rich_text_content, cover_image_attachment: { blob: [] }])
     end
   end
 end
